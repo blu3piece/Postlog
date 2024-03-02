@@ -1,0 +1,61 @@
+@keyframes themeChange {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.nav {
+    display:flex;
+    flex-wrap:wrap;
+    margin:0 auto;
+    height:var(--nav-height);
+    padding-top:16px;
+    padding-bottom:16px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.home {
+    display: none;
+
+    color:var(--black);
+    text-decoration: none;
+
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.themeChanger {
+    background: var(--black);
+    display: flex;
+    border-radius: 50%;
+    border: 3px solid;
+    flex-direction: column;
+    cursor:pointer;
+    align-items: center;
+    justify-content: center;
+    animation:themeChange 300ms ease-in-out;
+    width:30px;
+    height:30px;
+}
+
+.themeChanger.dark {
+    color:rgb(255, 166, 0);
+}
+
+.themeChanger.light {
+    color:rgb(158, 107, 13);
+}
+
+@media all and (max-width:1000px) {
+    .home {
+        display:block;
+    }
+    .nav {
+        justify-content: space-between;
+    }
+}
