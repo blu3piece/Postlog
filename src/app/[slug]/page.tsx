@@ -59,7 +59,7 @@ export default function Page(params:PageParams) {
             src = src ?? "";
             const {width, height} = articleData.imageSizes[path.join(src) ?? ""];
 
-            src = `${prefix}/_posts/${src}`;
+            src = `/_posts/${src}`;
 
             return (
               <Image

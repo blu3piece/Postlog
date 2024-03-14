@@ -1,4 +1,3 @@
-import { prefix } from "@/config";
 import Image from "next/image";
 
 export default function Footer() {
@@ -7,7 +6,7 @@ export default function Footer() {
       <p className="flex flex-row m-0 text-[--black] text-base">
         Support me by following on 
         <a className="flex flex-row items-center text-[--black]" href="https://github.com/chayhan">
-          <Image className="my-0 mx-[5px]" src={`${prefix}/github-icon.png`} alt="favicon" width={16} height={16} />
+          <Image className="my-0 mx-[5px]" src={"/github-icon.png"} alt="favicon" width={16} height={16} />
           <span className="underline">github</span>
         </a>
       </p>
