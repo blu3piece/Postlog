@@ -4,7 +4,7 @@ import path from "node:path";
 import sizeOf from "image-size";
 import matter from "gray-matter";
 
-const DOCUMENT_PATH = path.join("public", "docs");
+const DOCUMENT_PATH = path.join("public", "_posts");
 
 const MONTH_NAME_TABLE = [
   "Jan",
@@ -51,6 +51,10 @@ fs.readdirSync(DOCUMENT_PATH).reverse().forEach((item) => {
   articleData.push(data);
 });
 
+articleData.sort((a, b) => {
+  return (Number(b.date) - Number(a.date));
+});
+
 export function getArticleList() {
   // 빈 데이터를 받지 않기 위한 방지조치.
   return articleData;
@@ -92,6 +96,7 @@ function fetchImageSizes(content: string) {
 }
 
 export function fetchArticle(slug : string) {
+  console.log(slug);
   const article: Article | undefined = articleData.find((value) => slug == value.slug);
 
   if(!article) {
