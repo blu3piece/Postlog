@@ -96,7 +96,6 @@ function fetchImageSizes(content: string) {
 }
 
 export function fetchArticle(slug : string) {
-  console.log(slug);
   const article: Article | undefined = articleData.find((value) => slug == value.slug);
 
   if(!article) {
