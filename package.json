@@ -11,28 +11,31 @@
   },
   "dependencies": {
     "@giscus/react": "^2.4.0",
-    "dotenv": "^16.3.1",
-    "image-size": "^1.0.2",
+    "image-size": "^1.1.1",
     "next": "latest",
     "prismjs": "^1.29.0",
     "react": "latest",
     "react-dom": "latest",
     "react-markdown": "^9.0.1",
-    "sharp": "^0.32.6"
+    "sharp": "^0.32.6",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
-    "@emotion/react": "^11.11.1",
+    "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.15.1",
+    "@mui/icons-material": "^5.15.11",
     "@types/node": "latest",
     "@types/prismjs": "^1.26.3",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "autoprefixer": "^10.4.18",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "gray-matter": "^4.0.3",
+    "postcss": "^8.4.35",
     "rehype-prism-plus": "^1.6.3",
     "remark-gfm": "^4.0.0",
+    "tailwindcss": "^3.4.1",
     "typescript": "latest"
   }
 }

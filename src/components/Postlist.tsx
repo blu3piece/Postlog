@@ -1,6 +1,6 @@
 'use client';
 
-import styles from "./Postlist.module.css";
+// import styles from "./Postlist.module.css";
 import { useSearchParams } from "next/navigation";
 import { Article } from "@/ts/article";
 
@@ -23,39 +23,39 @@ export default function Postlist(params:PostlistParam) {
 
   for(let i=1; i<=lastPageIdx; ++i) {
     if(pageNumberQuery == i || pageNumberQuery == i-1 || pageNumberQuery == i + 1)
-      pageNumbers.push(<Link key={i} className={`${styles.pageNumberButton} ${pageNumberQuery == i ? styles.clicked : ""}`} href={`/?page=${i}`}>
+      pageNumbers.push(<Link key={i} className={`leading-7 align-center font-bold ${pageNumberQuery == i ? "text-[--black] text-base" : "text-[--gray] text-base"}`} href={`/?page=${i}`}>
         {i}
       </Link>);
   }
   
   const displayArticles = articleList.slice((pageNumberQuery-1)*4, (pageNumberQuery-1)*4 + 4 > articleList.length ? articleList.length : (pageNumberQuery-1)*4 + 4);
 
-  return <div className={styles.wrapper}>
-    <div className={styles.posts}>
+  return <div className="flex flex-col min-h-[600px] justify-between *:m-0 *:transition">
+    <div className="flex flex-col justify-start py-[30px]">
       {displayArticles.map((value, index) => {
-        return <div className={styles.postWrap} key={index}>
-        <div className={styles.postTitle}>
+        return <div className="mb-[32px]" key={index}>
+        <div className="text-[--black] text-lg underline underline-offset-4 inline-block">
           <Link href={`/${value.slug}`}>
             {value.title}
           </Link>
         </div>
-        <div className={styles.postDesc}>
+        <div className="text-[--gray] text-base">
           {value.description}
         </div>
-        <div className={styles.postDate}>
+        <div className="mt-[8px] text-[--whitegray] text-base">
           {value.dateString}
         </div>
       </div>
       })}
     </div>
-    <div className={styles.pageNumber}>
-      <div className={styles.toFirst}>
+    <div className="text-[--black] flex flex-row justify-between">
+      <div className="toFirst">
         <Link href={"/?page=1"} >
           <ArrowBackIcon />
         </Link>
       </div>
       {pageNumbers}
-      <div className={styles.toLast}>
+      <div className="toLast">
         <Link href={`/?page=${lastPageIdx}`} >
           <ArrowForwardIcon />
         </Link>

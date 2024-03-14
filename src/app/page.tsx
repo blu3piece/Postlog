@@ -1,22 +1,15 @@
 import Postlist from "../components/Postlist";
 import { Suspense } from "react";
-import styles from "./page.module.css";
 import { getArticleList } from "@/ts/article";
 
-function PostlistFallback() {
-  return <>
-    loading...
-  </>
-}
-
 export default function Page() {
-  return <div className={styles.mainWrap}>
-    <div className={styles.header}>
-      <div className={styles.title}>Posts</div>
-      <div className={styles.description}>다양한 주제로 글을 씁니다.</div>
+  return <div className="w-[100%] pb-[50px]">
+    <div className="h-[--header-height]">
+      <div className="text-[--black] text-3xl font-normal">Posts</div>
+      <div className="text-[--gray-weak] text-xl font-normal">다양한 주제로 글을 씁니다.</div>
     </div>
-    <div className={styles.hr} />
-    <Suspense fallback={<PostlistFallback />}>
+    <div className="line mx-0 my-[15px] relative" />
+    <Suspense fallback="loading...">
       <Postlist articleList={getArticleList()} />
     </Suspense>
   </div>

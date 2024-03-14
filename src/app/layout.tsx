@@ -1,67 +1,52 @@
 import "./globals.css";
+import 'prismjs/themes/prism-tomorrow.css';
+
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
-import { prefix, isDebug, SITE_TITLE_SUFFIX } from "@/config";
-import 'prismjs/themes/prism-tomorrow.css';
-import styles from "./layout.module.css";
-import Navbar from "@/components/Navbar";
-import Footer from "../components/Footer";
-import SideMenu from "@/components/SideMenu";
+
+import Navbar from "@/components/layout/Navbar";
+import Footer from "../components/layout/Footer";
+import SideMenu from "@/components/layout/SideMenu";
 import Toc from "@/components/Toc";
-import { ThemeProvider } from "@/ts/theme";
+import ThemeCheck from "./ThemeCheck";
 
 const font = Noto_Sans_KR({ subsets: ["latin", "latin-ext"] });
 
+
 export const metadata: Metadata = {
   metadataBase:new URL("https://chayhan.github.io/markdown-blog"),
-  title:SITE_TITLE_SUFFIX,
+  title:"bluewhistle12 blog",
   description: "개발자 chayhan 의 블로그 입니다.",
   openGraph:{
-    siteName:SITE_TITLE_SUFFIX,
-    title:"chay의 깃허브 블로그",
-    description:"chayhan.github.io 블로그",
-    images:`${prefix}/ogimage.png`,
+    siteName:"bluewhistle12 blog",
+    title:"Home",
+    description:"blog of bluewhitle12",
+    images:"ogimage.png",
   }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const codeThemeCheck = `
-    let localTheme = localStorage.getItem("theme");
-    if(!localTheme) {
-      localTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-      localStorage.setItem("theme", localTheme);
-    }
-    
-    const html = document.querySelector("html");
-    html.dataset.theme = localTheme;
-  `;
+  
   return (
-    <html lang="en" suppressHydrationWarning={isDebug}>
+    <html lang="ko">
       <head>
-        <script type="text/javascript" dangerouslySetInnerHTML={{ __html: codeThemeCheck}}></script>
+        <ThemeCheck />
       </head>
-      
-      <body className={`${font.className} ${styles.layout}`}>
-        <div className={styles.sidebar}>
-          <SideMenu />
-        </div>
-        <div className={styles.main}>
-          <div className={styles.body}>
-            <ThemeProvider>
-              <div className={styles.navbar}>
-                <Navbar />
+      <body className={font.className}>
+        <SideMenu />
+        <div className="block ml-[--sidebar-width]">
+          <div className="min-h-[100vh]">
+            <Navbar />
+            <div className="w-[--main-width] flex flex-row justify-between m-auto">
+              <div className="w-[--article-width]">
+                {children}
               </div>
-              <div className={styles.content}>
-                <div className={styles.article}>
-                  {children}
-                </div>
-                <Toc />
-              </div>
-            </ThemeProvider>
+              <Toc />
+            </div>
           </div>
-          <div className={styles.footer}>
-            <Footer />
-          </div>
+
+          <Footer />
+
         </div>
       </body>
     </html>

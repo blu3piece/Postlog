@@ -1,13 +1,16 @@
 "use client";
-import { ThemeContext, ThemeProvider } from "@/ts/theme";
+
+import { useThemeStore } from "@/store/useThemeStore";
 import Giscus from "@giscus/react";
-import { useContext, useEffect } from "react";
 
 export default function GiscusComponent() {
-  const {theme, setTheme} = useContext(ThemeContext);
-  console.log("test from giscus");
-  return !theme ? "loading..." : <Giscus
-    repo="chayhan/markdown-blog"
+  const getTheme = useThemeStore(state => state.getTheme);
+  const theme = getTheme();
+
+  if(theme == null) return <></>;
+
+  return <Giscus
+    repo="chayhan/Postlog"
     repoId="R_kgDOKUiJsQ"
     category="comments"
     categoryId="DIC_kwDOKUiJsc4CaU5s"

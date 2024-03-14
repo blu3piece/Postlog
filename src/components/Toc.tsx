@@ -1,13 +1,12 @@
-import styles from "./Toc.module.css";
 
 export default function TableOfContent() {
-  return <div className={styles.wrap}>
-    <div className={styles.header}>
-      <div>
+  return <div className="e">
+    <div className="flex items-end h-[--header-height]">
+      <div className="text-[--black] text-base font-light">
         최근 읽은 글
       </div>
     </div>
-    <div className={styles.hr} />
+    <div className="line my-[15px] relative" />
     <ul>
       <li>
         현재 기능 개발 중

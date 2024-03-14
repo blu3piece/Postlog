@@ -1,35 +1,30 @@
-import styles from "./page.module.css";
-import "./Markdown.css";
+import "@/css/markdown.css";
 
 // load local data
-import { SITE_TITLE_SUFFIX, prefix } from "@/config";
 // load dependencies
 import { getArticleList, fetchArticle } from "@/ts/article";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypePrism from "rehype-prism-plus";
-import Giscus from "./Giscus";
+import Giscus from "../../components/Giscus";
 import Image from "next/image";
 import path from "node:path";
-import { Metadata } from "next";
+import { metadata as metadataMain } from "../layout";
 
 import { Source_Code_Pro } from "next/font/google";
 
 const monofont = Source_Code_Pro({ subsets: ["latin", "latin-ext"] });
 
-interface StaticParams {
-  slug: string;
+interface PageParams {
+  params: {
+    slug:string;
+  }
 }
 
-interface SlugPageParams {
-  params:StaticParams;
-}
+export const metadata = metadataMain;
 
-export const metadata:Metadata = {
-};
-
-export default function SlugPage(params:SlugPageParams) {
-  const { slug } = params.params;
+export default function Page(params:PageParams) {
+  const slug = params.params.slug;
   const articleData = fetchArticle(slug);
 
   if(articleData == null) {
@@ -37,25 +32,26 @@ export default function SlugPage(params:SlugPageParams) {
   }
 
   metadata.title = articleData.article.title;
-  metadata.openGraph = {
-    title : articleData.article.title,
-    description:articleData.article.description,
-    images:`${prefix}/ogimage.png`,
-    siteName:SITE_TITLE_SUFFIX,
+  if(metadata.openGraph) {
+    metadata.openGraph.title = articleData.article.title;
+    metadata.openGraph.description = articleData.article.description;
   }
+  
 
-  return <div className={styles.wrap}>
-    <div className={styles.header}>
-      <div className={styles.title}>{articleData.article.title}</div>
-      <div className={styles.date}>
+  return <div className="w-[100%] mb-[60px]">
+    <div className="">
+      <div className="text-[--black] text-2xl font-semibold leading-10">
+        {articleData.article.title}
+      </div>
+      <div className="text-[--gray-weak] text-base">
         {articleData.article.dateString}
       </div>
     </div>
-    <div className={styles.line}></div>
+    <div className="animate-stretchRight mx-0 my-[15px] relative w-[100%] h-[1px] bg-[--gray]"></div>
     <Markdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypePrism]}
-        className={styles.markdown}
+        className="markdown animation-fadeout"
         components={{
           img: (props) => {
             let {src, alt} = props;
@@ -63,11 +59,11 @@ export default function SlugPage(params:SlugPageParams) {
             src = src ?? "";
             const {width, height} = articleData.imageSizes[path.join(src) ?? ""];
 
-            src = `${prefix}/docs/${src}`;
+            src = `${prefix}/_posts/${src}`;
 
             return (
               <Image
-                className={styles.image}
+                className="image"
                 src={src ?? ""}
                 alt={alt ?? ""}
                 width={width}
