@@ -1,3 +1,4 @@
 [submodule "public/_posts"]
 	path = public/_posts
 	url = https://github.com/chayhan/blog-posts
+	update = merge
