@@ -26,6 +26,7 @@ export const metadata = metadataMain;
 export default function Page(params:PageParams) {
   const slug = params.params.slug;
   const articleData = fetchArticle(slug);
+  const prefix = process.env.NODE_ENV === "production" ? "/blog-posts" : "";
 
   if(articleData == null) {
     return <></>;
@@ -59,11 +60,13 @@ export default function Page(params:PageParams) {
             src = src ?? "";
             const {width, height} = articleData.imageSizes[path.join(src) ?? ""];
 
-            src = `/_posts/${src}`;
-
+            
+            src = `${prefix}/_posts/${src}`;  
+            
             return (
               <Image
                 className="image"
+                
                 src={src ?? ""}
                 alt={alt ?? ""}
                 width={width}
