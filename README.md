@@ -1,4 +1,13 @@
-# 프로젝트 개편 예정
+![Postlog](./docs/splash.svg)
+
+github blog solution with [next.js](https://nextjs.org/), which supports [mdx](https://mdxjs.com/)
+
+## Preparing to support solution for everyone via cli feature.
+
+<details>
+    <summary>Project reorganization plan written in Korean</summary>
+    
+## 프로젝트 개편 예정
 
 `Next.js` 기능들을 사용해보기 위해 시작한 프로젝트 였으나, 프로젝트로써의 기능성이 부족한 토이프로젝트 였습니다.
 
@@ -63,3 +72,4 @@
 협업에 있어서 중요하지만, 과거 제가 어떤 코드를 짰는지 리뷰를 진행할 때에도 중요하다고 생각이 들었습니다. 그래서 `Commit Message Convention` 을 제대로 지켜볼 생각입니다.
 
 브랜치도 마찬가지입니다. `develop` 브랜치와 `master` 브랜치를 사용하여 본 프로젝트를 다른 유저가 사용할 때 예기치못한 버그가 없도록 하려고 합니다.
+</details>
