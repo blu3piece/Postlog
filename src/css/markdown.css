@@ -1,8 +1,8 @@
 .markdown {
     /* color:var(--black-weak); */
     animation:fadeout 300ms;
-    font-size:16px;
-    font-weight:350;
+    font-size:15px;
+    font-weight:400;
     padding-bottom:32px;
     
 }
@@ -17,11 +17,11 @@
 
 .markdown h1 {
     color: var(--black);
-    font-size: 28px;
+    font-size: 24px;
     font-weight:600;
-    /* border-bottom:1px solid var(--gray); */
+    border-bottom:1px solid var(--whitegray);
     margin-top:24px;
-    margin-bottom:12px;
+    padding-bottom:5px;
 }
 
 .markdown h1 code {
@@ -35,10 +35,11 @@
 
 .markdown h2 {
     color: var(--black);
-    font-size:24px;
-    font-weight:600;
-    /* border-bottom:1px solid var(--whitegray); */
+    font-size:22px;
+    font-weight:500;
+    border-bottom:1px solid var(--whitegray);
     margin-top:28px;
+	padding-bottom:5px;
 }
 
 .markdown h2 code {
@@ -47,8 +48,8 @@
 
 .markdown h3 {
     color: var(--black);
-    font-weight:600;
-    font-size:22px;
+    font-weight:500;
+    font-size:20px;
     margin-top:20px;
 }
 
@@ -68,8 +69,8 @@
 }
 
 .markdown p {
-    margin:6px 0px;
-    line-height:27px;
+    margin:10px 0px;
+    line-height:1.7;
 }
 
 .markdown blockquote {
@@ -81,10 +82,10 @@
     overflow-x:auto;
     color:var(--gray);
     border-radius: 6px;
-    /* border: 1px solid var(--primary-gray); */
-    padding: 10px;
+    border: 1px solid var(--whitegray-weak);
+    padding: 10px !important;
     margin: 12px 0;
-    background-color: var(--code-background);
+    background-color: var(--code-background) !important;
     font-size:15px;
 }
 
@@ -94,14 +95,14 @@
     padding:3px 6px;
     background-color: var(--code-background);
     color:var(--black-weak);
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .markdown pre > code {
     padding: 0;
     background-color: transparent;
     font-weight:normal;
-    font-size:17px;
+    font-size:14px !important;
 }
 
 .markdown ul {
@@ -110,6 +111,7 @@
 }
 
 .markdown li {
+	list-style: auto;
     margin:12px 0;
 }
 
@@ -147,8 +149,6 @@ html[data-theme="light"] pre[class*="language-"] {
 	word-break: normal;
 	word-wrap: normal;
 	color: #90a4ae;
-	background: #fafafa;
-	font-family: Roboto Mono, monospace;
 	font-size: 1em;
 	line-height: 1.5em;
 
@@ -166,16 +166,14 @@ html[data-theme="light"] code[class*="language-"]::-moz-selection,
 html[data-theme="light"] pre[class*="language-"]::-moz-selection,
 html[data-theme="light"] code[class*="language-"] ::-moz-selection,
 html[data-theme="light"] pre[class*="language-"] ::-moz-selection {
-	background: #cceae7;
-	color: #263238;
+
 }
 
 html[data-theme="light"] code[class*="language-"]::selection,
 html[data-theme="light"] pre[class*="language-"]::selection,
 html[data-theme="light"] code[class*="language-"] ::selection,
 html[data-theme="light"] pre[class*="language-"] ::selection {
-	background: #cceae7;
-	color: #263238;
+	
 }
 
 html[data-theme="light"] :not(pre) > code[class*="language-"] {
@@ -357,8 +355,6 @@ html[data-theme="dark"] pre[class*="language-"] {
 	word-break: normal;
 	word-wrap: normal;
 	color: #eee;
-	background: #2f2f2f;
-	font-family: Roboto Mono, monospace;
 	font-size: 1em;
 	line-height: 1.5em;
 
@@ -376,14 +372,14 @@ html[data-theme="dark"] code[class*="language-"]::-moz-selection,
 html[data-theme="dark"] pre[class*="language-"]::-moz-selection,
 html[data-theme="dark"] code[class*="language-"] ::-moz-selection,
 html[data-theme="dark"] pre[class*="language-"] ::-moz-selection {
-	background: #363636;
+	
 }
 
 html[data-theme="dark"] code[class*="language-"]::selection,
 html[data-theme="dark"] pre[class*="language-"]::selection,
 html[data-theme="dark"] code[class*="language-"] ::selection,
 html[data-theme="dark"] pre[class*="language-"] ::selection {
-	background: #363636;
+	
 }
 
 html[data-theme="dark"] :not(pre) > code[class*="language-"] {

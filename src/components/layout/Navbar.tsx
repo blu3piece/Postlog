@@ -28,22 +28,27 @@ export default function Navbar() {
           flex
           cursor-pointer
           items-center
-          justify-center
-          w-[30px]
-          h-[30px]"
+          justify-center"
         onClick={handleThemeChange}
       >
-        {!theme ? (
-          <div className="">loading...</div>
-        ) : theme == "dark" ? (
-          <div key="light" className="flex animate-fadeout">
-            <LightModeIcon className="flex text-yellow-500 w-[0.9em] h-[0.9em]"/>
-          </div>
-        ) : (
-          <div key="dark" className="flex text-yellow-500 animate-fadeout">
-            <DarkModeIcon />
-          </div>
-        )}
+        <div className="underline mx-2">
+          <Link href={"https://github.com/blu3fishez/"}>
+            Github
+          </Link>
+        </div>
+        <div className="flex w-[30px] h-[30px] items-center justify-center">
+          {!theme ? (
+            <div className="">.</div>
+          ) : theme == "dark" ? (
+            <div key="light" className="animate-fadeout">
+              <LightModeIcon className="flex text-yellow-500 w-[0.9em] h-[0.9em]"/>
+            </div>
+          ) : (
+            <div key="dark" className="flex text-yellow-500 animate-fadeout">
+              <DarkModeIcon />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
