@@ -30,7 +30,7 @@ export default function Postlist(params:PostlistParam) {
   
   const displayArticles = articleList.slice((pageNumberQuery-1)*4, (pageNumberQuery-1)*4 + 4 > articleList.length ? articleList.length : (pageNumberQuery-1)*4 + 4);
 
-  return <div className="flex flex-col min-h-[600px] justify-between *:m-0 *:transition">
+  return <div className="flex flex-col min-h-[600px] justify-between *:m-0">
     <div className="flex flex-col justify-start py-[30px]">
       {displayArticles.map((value, index) => {
         return <div className="mb-[32px]" key={index}>

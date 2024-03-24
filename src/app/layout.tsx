@@ -7,21 +7,20 @@ import { Noto_Sans_KR } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import SideMenu from "@/components/layout/SideMenu";
-import Toc from "@/components/Toc";
+import Thumbnail from "../../public/ogimage.png";
 import ThemeCheck from "./ThemeCheck";
 
-const font = Noto_Sans_KR({ subsets: ["latin", "latin-ext"] });
-
+const sansFont = Noto_Sans_KR({ subsets: ["latin", "latin-ext"] });
 
 export const metadata: Metadata = {
-  metadataBase:new URL("https://chayhan.github.io/markdown-blog"),
-  title:"bluewhistle12 blog",
-  description: "개발자 chayhan 의 블로그 입니다.",
+  metadataBase:new URL("https://blu3fishez.github.io/markdown-blog"),
+  title:"blu3fishez's Postlog",
+  description: "blu3fishez's Postlog",
   openGraph:{
-    siteName:"bluewhistle12 blog",
-    title:"Home",
-    description:"blog of bluewhitle12",
-    images:"ogimage.png",
+    siteName:"blu3fishez's Postlog",
+    title:"blu3fishez's Postlog",
+    description:"blu3fishez's Postlog",
+    images:Thumbnail.src,
   }
 };
 
@@ -32,16 +31,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <ThemeCheck />
       </head>
-      <body className={font.className}>
+      <body className={`${sansFont.className} transition duration-700`}>
         <SideMenu />
         <div className="block ml-[--sidebar-width]">
           <div className="min-h-[100vh]">
             <Navbar />
-            <div className="w-[--main-width] flex flex-row justify-between m-auto">
-              <div className="w-[--article-width]">
+            <div className="flex flex-row justify-center m-auto">
+              <div className="w-[--main-width]">
                 {children}
               </div>
-              <Toc />
             </div>
           </div>
 

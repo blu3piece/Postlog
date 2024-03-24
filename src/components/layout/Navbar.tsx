@@ -3,6 +3,8 @@
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import Link from "next/link";
+import Image from "next/image";
+import Postlog from "../../../public/Postlog.svg";
 import { useThemeState } from "@/hooks/useThemeState";
 
 export default function Navbar() {
@@ -16,17 +18,14 @@ export default function Navbar() {
   if (theme == null) return <></>;
 
   return (
-    <div className="flex flex-wrap m-auto w-[--main-width] pt-[16px] pb-[16px] items-center justify-end">
-      <Link className="hidden text-[--black] text-3xl font-black" href={"/"}>
-        Chayhan.
+    <div className="flex flex-wrap m-auto max-w-[--main-width] py-[32px] items-center justify-between">
+      <Link className="flex text-[--black] text-2xl font-bold" href={"/"}>
+        {/* <Image src={`${prefix}/favicon-128.png`} alt="favicon" width={32} height={32} style={{ borderRadius: 6 }}></Image> */}
+        blu3fishez.<Image width={30} height={30} src={Postlog} alt={"Postlog"} /> 
       </Link>
       <div
         className="bg-transparent
-          text-yellow-500
-          border-yellow-500
           flex
-          rounded-full
-          border-2
           cursor-pointer
           items-center
           justify-center
@@ -38,10 +37,10 @@ export default function Navbar() {
           <div className="">loading...</div>
         ) : theme == "dark" ? (
           <div key="light" className="flex animate-fadeout">
-            <LightModeIcon className="flex w-[0.9em] h-[0.9em]"/>
+            <LightModeIcon className="flex text-yellow-500 w-[0.9em] h-[0.9em]"/>
           </div>
         ) : (
-          <div key="dark" className="flex animate-fadeout">
+          <div key="dark" className="flex text-yellow-500 animate-fadeout">
             <DarkModeIcon />
           </div>
         )}
