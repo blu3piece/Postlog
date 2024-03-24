@@ -33,11 +33,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={`${sansFont.className} transition duration-700`}>
         <SideMenu />
-        <div className="block ml-[--sidebar-width]">
+        <div className="block">
           <div className="min-h-[100vh]">
             <Navbar />
-            <div className="flex flex-row justify-center m-auto">
-              <div className="w-[--main-width]">
+            <div className="w-[--main-width] mobile:w-[90vw] m-auto">
+              <div>
                 {children}
               </div>
             </div>

@@ -50,7 +50,8 @@
     color: var(--black);
     font-weight:500;
     font-size:20px;
-    margin-top:20px;
+    margin-top:24px;
+	padding-bottom:5px;
 }
 
 .markdown h3 code {
@@ -69,8 +70,8 @@
 }
 
 .markdown p {
-    margin:10px 0px;
-    line-height:1.7;
+    margin:16px 0px;
+	margin-top:8px;
 }
 
 .markdown blockquote {
@@ -90,11 +91,10 @@
 }
 
 .markdown code {
-    border-radius: 8px;
-    line-height: 1.5;
-    padding:3px 6px;
+    border-radius: 4px;
+    padding:1px 3px;
     background-color: var(--code-background);
-    color:var(--black-weak);
+    color:var(--black);
     font-size: 14px;
 }
 
@@ -107,12 +107,16 @@
 
 .markdown ul {
     margin-bottom:12px;
-    padding-left: 24px;
+    padding-left: 36px;
 }
 
 .markdown li {
 	list-style: auto;
     margin:12px 0;
+}
+
+.markdown ul li {
+	list-style :disc;
 }
 
 .markdown ol {

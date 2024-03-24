@@ -18,7 +18,7 @@ export default function Navbar() {
   if (theme == null) return <></>;
 
   return (
-    <div className="flex flex-wrap m-auto max-w-[--main-width] py-[32px] items-center justify-between">
+    <div className="flex flex-wrap m-auto mobile:w-[90vw] max-w-[--main-width] py-[32px] items-center justify-between">
       <Link className="flex text-[--black] text-2xl font-bold" href={"/"}>
         {/* <Image src={`${prefix}/favicon-128.png`} alt="favicon" width={32} height={32} style={{ borderRadius: 6 }}></Image> */}
         blu3fishez.<Image width={30} height={30} src={Postlog} alt={"Postlog"} /> 

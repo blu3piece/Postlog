@@ -11,7 +11,7 @@ const serifFont = Noto_Serif_KR({
 export default function SideMenu() {
   return (
     <>
-      <div className="z-10 flex py-[10px] fixed w-[--sidebar-width] h-[100vh] flex-col items-center px-[10px] top-0 bg-[--menu-background-color] transition duration-700">
+      <div className="hidden z-10 flex py-[10px] fixed w-[--sidebar-width] h-[100vh] flex-col items-center px-[10px] top-0 bg-[--menu-background-color] transition duration-700">
         <div className="z-20 left-[--sidebar-width] self-end cursor-pointer text-[--gray]">
           <Image src={CollapseButton} alt={""} width={16} height={16} />
         </div>
